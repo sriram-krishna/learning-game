@@ -1,4 +1,5 @@
 import SwiftUI
+import LineChartView
 
 struct MainMenuView: View {
     @State private var showGameOptions = false
@@ -6,17 +7,15 @@ struct MainMenuView: View {
     @State private var showProgress = false
     
     var body: some View {
-        ZStack { // Use ZStack to layer the background photo and the main content
-            // Background photo
-            Image("Image") // Replace "backgroundPhoto" with the name of your image asset
-                //.scaledToFill()
+        ZStack {
+            Image("background")
                 .resizable()
                 .frame(height: nil)
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 Spacer()
                 
-                Text("Welcome to the Children's Game")
+                Text("Memory Lane")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color.yellow)
@@ -106,10 +105,7 @@ struct SettingsView: View {
             }
             
             Section {
-                Button(action: {
-                    // Save the profile information
-                    // Add your code here to save the profile data
-                }) {
+                Button(action: {                }) {
                     Text("Save")
                         .foregroundColor(.blue)
                 }
@@ -120,90 +116,34 @@ struct SettingsView: View {
 }
 
 struct ProgressView: View {
-    @State private var numberOfAttempts = 0
-    @State private var numberOfCorrectAttempts = 0
-    @State private var numberOfIncorrectAttempts = 0
-    
-    let graphHeight: CGFloat = 200
+    private let data: [LineChartData] = [
+        LineChartData(300),
+        LineChartData(250),
+        LineChartData(400),
+        LineChartData(500),
+    ]
     
     var body: some View {
-        VStack {
-            Text("Progress")
-                .font(.title)
-                .fontWeight(.bold)
-            
-            Spacer()
-            
-            Text("Number of Attempts: \(numberOfAttempts)")
-            
-            Text("Number of Correct Attempts: \(numberOfCorrectAttempts)")
-            
-            Text("Number of Incorrect Attempts: \(numberOfIncorrectAttempts)")
-            
-            VStack {
-                GeometryReader { geometry in
-                    HStack(spacing: 10) {
-                        ForEach(0..<3, id: \.self) { index in
-                            VStack {
-                                Spacer()
-                                Capsule()
-                                    .frame(width: 20, height: valueHeight(value: getValue(for: index)), alignment: .bottom)
-                                    .foregroundColor(getColor(for: index))
-                                Text("\(getValue(for: index))")
-                                    .font(.caption)
-                                Spacer()
-                            }
-                        }
-                    }
-                }
-                .frame(height: graphHeight)
-            }
-            
-            Spacer()
-        }
-        .padding()
-        .navigationBarTitle(Text("Progress"))
-        .onAppear {
-            // Update the values based on actual data or logic
-            numberOfAttempts = 50
-            numberOfCorrectAttempts = 30
-            numberOfIncorrectAttempts = 20
-        }
-    }
-    
-    func getValue(for index: Int) -> Int {
-        switch index {
-        case 0:
-            return numberOfAttempts
-        case 1:
-            return numberOfCorrectAttempts
-        case 2:
-            return numberOfIncorrectAttempts
-        default:
-            return 0
-        }
-    }
-    
-    func getColor(for index: Int) -> Color {
-        switch index {
-        case 0:
-            return .blue
-        case 1:
-            return .green
-        case 2:
-            return .red
-        default:
-            return .clear
-        }
-    }
-    
-    func valueHeight(value: Int) -> CGFloat {
-        let maxValue = max(numberOfAttempts, max(numberOfCorrectAttempts, numberOfIncorrectAttempts))
-        let ratio = CGFloat(value) / CGFloat(maxValue)
-        return ratio * graphHeight
+        let chartParameters = LineChartParameters(
+            data: data,
+            labelColor: .primary,
+            secondaryLabelColor: .secondary,
+            labelsAlignment: .left,
+            indicatorPointColor: .blue,
+            indicatorPointSize: 20,
+            lineColor: .blue,
+            lineSecondColor: .purple,
+            lineWidth: 3,
+            dotsWidth: 8,
+            displayMode: .default,
+            dragGesture: true,
+            hapticFeedback: true
+        )
+        
+        LineChartView(lineChartParameters: chartParameters)
+            .frame(height: 300)
     }
 }
-
 struct ContentView: View {
     var body: some View {
         MainMenuView()
@@ -213,6 +153,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
 

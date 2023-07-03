@@ -25,6 +25,10 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
+            Section(header: Text("Hints")) {
+                HintsView()
+            }
+
             Section(header: Text("Profile Information")) {
                 VStack {
                     if profiles.isEmpty {

@@ -8,17 +8,25 @@ struct MainMenuView: View {
     
     var body: some View {
         ZStack {
-            Image("background")
+            Image("Background Image")
                 .resizable()
                 .frame(height: nil)
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 Spacer()
                 
-                Text("Memory Lane")
+                Text("Welcome to")
+                    .font(.system(size: 50))
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color.yellow)
+                    .offset(y: -75)
+                
+                Text("Memory Lane")
+                    .font(.system(size: 80))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.yellow)
+                    .offset(y: -80)
                                         
                 Spacer()
                 

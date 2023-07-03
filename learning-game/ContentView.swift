@@ -1,5 +1,6 @@
 import SwiftUI
 import LineChartView
+import TogglableSecureField
 
 struct MainMenuView: View {
     @State private var showGameOptions = false

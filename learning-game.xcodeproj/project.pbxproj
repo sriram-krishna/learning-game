@@ -15,6 +15,7 @@
 		840D30A82A44DA10008B7B69 /* learning_gameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D30A72A44DA10008B7B69 /* learning_gameUITests.swift */; };
 		840D30AA2A44DA10008B7B69 /* learning_gameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D30A92A44DA10008B7B69 /* learning_gameUITestsLaunchTests.swift */; };
 		84A554A82A519BC600CE2A92 /* LineChartView in Frameworks */ = {isa = PBXBuildFile; productRef = 84A554A72A519BC600CE2A92 /* LineChartView */; };
+		EC141F342A528AAC0089BFB9 /* TogglableSecureField in Frameworks */ = {isa = PBXBuildFile; productRef = EC141F332A528AAC0089BFB9 /* TogglableSecureField */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC141F342A528AAC0089BFB9 /* TogglableSecureField in Frameworks */,
 				84A554A82A519BC600CE2A92 /* LineChartView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +149,7 @@
 			name = "learning-game";
 			packageProductDependencies = (
 				84A554A72A519BC600CE2A92 /* LineChartView */,
+				EC141F332A528AAC0089BFB9 /* TogglableSecureField */,
 			);
 			productName = "learning-game";
 			productReference = 840D30892A44DA0F008B7B69 /* learning-game.app */;
@@ -222,6 +225,7 @@
 			mainGroup = 840D30802A44DA0F008B7B69;
 			packageReferences = (
 				84A554A62A519BC600CE2A92 /* XCRemoteSwiftPackageReference "LineChartView" */,
+				EC141F322A528AAC0089BFB9 /* XCRemoteSwiftPackageReference "TogglableSecureField" */,
 			);
 			productRefGroup = 840D308A2A44DA0F008B7B69 /* Products */;
 			projectDirPath = "";
@@ -593,6 +597,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		EC141F322A528AAC0089BFB9 /* XCRemoteSwiftPackageReference "TogglableSecureField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/perfaram/TogglableSecureField";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -600,6 +612,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 84A554A62A519BC600CE2A92 /* XCRemoteSwiftPackageReference "LineChartView" */;
 			productName = LineChartView;
+		};
+		EC141F332A528AAC0089BFB9 /* TogglableSecureField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC141F322A528AAC0089BFB9 /* XCRemoteSwiftPackageReference "TogglableSecureField" */;
+			productName = TogglableSecureField;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -100,30 +100,6 @@ struct GameOptionsView: View {
     }
 }
 
-struct SettingsView: View {
-    @State private var name = ""
-    @State private var phoneNumber = ""
-    @State private var address = ""
-    
-    var body: some View {
-        Form {
-            Section(header: Text("Profile Information")) {
-                TextField("Name", text: $name)
-                TextField("Phone Number", text: $phoneNumber)
-                TextField("Address", text: $address)
-            }
-            
-            Section {
-                Button(action: {                }) {
-                    Text("Save")
-                        .foregroundColor(.blue)
-                }
-            }
-        }
-        .navigationBarTitle(Text("Settings"))
-    }
-}
-
 struct ProgressView: View {
     private let data: [LineChartData] = [
         LineChartData(300),

@@ -1,5 +1,6 @@
 import SwiftUI
 import LineChartView
+import TogglableSecureField
 
 struct MainMenuView: View {
     @State private var showGameOptions = false
@@ -8,17 +9,25 @@ struct MainMenuView: View {
     
     var body: some View {
         ZStack {
-            Image("background")
+            Image("Background Image")
                 .resizable()
                 .frame(height: nil)
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 Spacer()
                 
-                Text("Memory Lane")
+                Text("Welcome to")
+                    .font(.system(size: 50))
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color.yellow)
+                    .offset(y: -75)
+                
+                Text("Memory Lane")
+                    .font(.system(size: 80))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.yellow)
+                    .offset(y: -80)
                                         
                 Spacer()
                 
@@ -88,30 +97,6 @@ struct GameOptionsView: View {
         }
         .padding()
         .navigationBarTitle(Text("Game Options"))
-    }
-}
-
-struct SettingsView: View {
-    @State private var name = ""
-    @State private var phoneNumber = ""
-    @State private var address = ""
-    
-    var body: some View {
-        Form {
-            Section(header: Text("Profile Information")) {
-                TextField("Name", text: $name)
-                TextField("Phone Number", text: $phoneNumber)
-                TextField("Address", text: $address)
-            }
-            
-            Section {
-                Button(action: {                }) {
-                    Text("Save")
-                        .foregroundColor(.blue)
-                }
-            }
-        }
-        .navigationBarTitle(Text("Settings"))
     }
 }
 

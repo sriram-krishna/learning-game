@@ -76,6 +76,8 @@ struct MainMenuView: View {
 }
 
 struct GameOptionsView: View {
+    @State private var showGameOptions = false
+
     var body: some View {
         VStack {
             Text("Choose a Game Option")
@@ -83,6 +85,21 @@ struct GameOptionsView: View {
                 .fontWeight(.bold)
             
             // Add your game options buttons here...
+            Button(action: {
+                showGameOptions = true
+            }) {
+                Text("Home Game")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
+                .background(Color.orange)
+                .foregroundColor(.white)
+                .cornerRadius(20)
+        }
+        .sheet(isPresented: $showGameOptions){
+            HomeGameView()
+        }
+
             
             Spacer()
         }

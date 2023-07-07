@@ -14,6 +14,7 @@ struct Question {
 }
 
 struct HomeGameView: View {
+    let maxAttemptsPerQuestion = 2
     let questions: [Question] = [
         Question(question: "What is the house number?", options: ["1234", "5678", "9101", "1213"], correctAnswerIndex: 0),
         Question(question: "What is the street name?", options: ["Home", "Street", "Avenue", "Lane"], correctAnswerIndex: 0),
@@ -26,6 +27,8 @@ struct HomeGameView: View {
     @State private var currentQuestionIndex = 0
     @State private var score = 0
     @State private var showAlert = false
+    @State private var currentAttempt = 1
+    @State private var isGameFinished = false
     
     var body: some View {
         VStack {
@@ -57,24 +60,67 @@ struct HomeGameView: View {
                 .padding()
         }
         .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("Result"),
-                message: Text("Your score is \(score) out of \(questions.count)"),
-                dismissButton: .default(Text("OK")) {
-                    resetGame()
-                }
-            )
+            if isGameFinished{
+                return createResultAlert()
+            }else {
+                return createQuitConfirmationAlert()
+            }
+
+            
         }
+        Button(action: {
+            isGameFinished = true
+            showAlert = true
+        }){
+            Text("Quit")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
+                .background(Color.red)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+        }
+        .padding()
+        
     }
+        
+    
+    private func createResultAlert() -> Alert {
+        Alert(
+            title: Text("Result"),
+            message: Text("Your score is \(score) out of \(questions.count)"),
+            dismissButton: .default(Text("OK")) {
+                resetGame()
+            }
+        )
+    }
+
+    private func createQuitConfirmationAlert() -> Alert {
+        Alert(
+            title: Text("Quit"),
+            message: Text("Are you sure you want to quit the game?"),
+            primaryButton: .destructive(Text("Quit")) {
+                resetGame()
+            },
+            secondaryButton: .cancel()
+        )
+    }
+
     
     func checkAnswer(_ selectedAnswerIndex: Int) {
         if selectedAnswerIndex == questions[currentQuestionIndex].correctAnswerIndex {
             score += 1
-        }
-        
-        if currentQuestionIndex + 1 < questions.count {
             currentQuestionIndex += 1
-        } else {
+            currentAttempt = 1
+        } else{
+            if currentAttempt < maxAttemptsPerQuestion{
+                currentAttempt += 1
+            }else{
+               currentQuestionIndex += 1
+                currentAttempt = 1
+            }
+        }
+        if currentQuestionIndex >= questions.count {
             showAlert = true
         }
     }
@@ -82,6 +128,8 @@ struct HomeGameView: View {
     func resetGame() {
         currentQuestionIndex = 0
         score = 0
+        currentAttempt = 1
+        isGameFinished = false
     }
 }
 

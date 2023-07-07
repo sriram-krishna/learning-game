@@ -8,7 +8,7 @@ struct MainMenuView: View {
     
     var body: some View {
         ZStack {
-            Image("background")
+            Image("HomePage Image")
                 .resizable()
                 .frame(height: nil)
                 .edgesIgnoringSafeArea(.all)
@@ -91,7 +91,7 @@ struct GameOptionsView: View {
     }
 }
 
-struct SettingsView: View {
+/*struct SettingsView: View {
     @State private var name = ""
     @State private var phoneNumber = ""
     @State private var address = ""
@@ -113,7 +113,7 @@ struct SettingsView: View {
         }
         .navigationBarTitle(Text("Settings"))
     }
-}
+}*/
 
 struct ProgressView: View {
     private let data: [LineChartData] = [

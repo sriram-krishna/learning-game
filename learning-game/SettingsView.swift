@@ -2,6 +2,7 @@
 //  SettingsView.swift
 //  learning-game
 //
+HomeGameView
 //  Created by Vandit Jindal on 7/6/23.
 //
 
@@ -9,18 +10,25 @@
 //  SettingsView.swift
 //  learning-game
 //
+
+main
 //  Created by Vandit Jindal on 7/2/23.
 //
 
 import Foundation
 import SwiftUI
 
+HomeGameView
 struct Profile: Identifiable, Equatable, Codable {
+
+struct Profile: Identifiable, Equatable {
+main
     var id = UUID()
     var name: String
     var phoneNumber: String
     var address: String
     
+HomeGameView
     enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -51,6 +59,12 @@ struct Profile: Identifiable, Equatable, Codable {
     }
 }
 
+
+    static func == (lhs: Profile, rhs: Profile) -> Bool{
+        return lhs.id == rhs.id
+    }
+}
+main
 struct SettingsView: View {
     @State private var profiles: [Profile] = []
     @State private var selectedProfile: Profile?
@@ -61,6 +75,7 @@ struct SettingsView: View {
             Section(header: Text("Hints")) {
                 HintsView()
             }
+HomeGameView
             
             Section(header: Text("Profile Information")) {
                 if profiles.isEmpty {
@@ -107,13 +122,78 @@ struct SettingsView: View {
                     Text("Address: \(selectedProfile.address)")
                 }
             }
+
+
+            Section(header: Text("Profile Information")) {
+                VStack {
+                    if profiles.isEmpty {
+                        Button(action: {
+                            showNewProfilePage = true
+                        }) {
+                            Text("Add Profile")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .padding()
+                                .background(Color.green)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                        .sheet(isPresented: $showNewProfilePage) {
+                            NewProfileView(profiles: $profiles, showNewProfilePage: $showNewProfilePage)
+                        }
+                    } else {
+                        ForEach(profiles.indices, id: \.self) { index in
+                            Button(action: {
+                                selectedProfile = profiles[index]
+                            }) {
+                                Text(profiles[index].name)
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                    .padding()
+                                    .background(selectedProfile == profiles[index] ? Color.blue : Color.gray)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                            }
+                        }
+                        
+                        Button(action: {
+                            showNewProfilePage = true
+                        }) {
+                            Text("Add Profile")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .padding()
+                                .background(Color.green)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                        .sheet(isPresented: $showNewProfilePage) {
+                            NewProfileView(profiles: $profiles, showNewProfilePage: $showNewProfilePage)
+                        }
+                        
+                        if let selectedProfile = selectedProfile, let selectedProfileIndex = profiles.firstIndex(of: selectedProfile) {
+                            TextField("Name", text: $profiles[selectedProfileIndex].name)
+                            TextField("Phone Number", text: $profiles[selectedProfileIndex].phoneNumber)
+                            TextField("Address", text: $profiles[selectedProfileIndex].address)
+                        } else {
+                            Text("No profile selected")
+                        }
+
+
+                    }
+                }
+            }
+main
         }
         .navigationBarTitle(Text("Settings"))
     }
 }
+HomeGameView
 private func saveProfiles() {
         // Your code to save the profiles
     }
+
+main
 
 struct NewProfileView: View {
     @Binding var profiles: [Profile]
@@ -121,7 +201,10 @@ struct NewProfileView: View {
     @State private var newProfileName = ""
     @State private var newProfilePhoneNumber = ""
     @State private var newProfileAddress = ""
+HomeGameView
     var saveAction: () -> Void
+
+main
     
     var body: some View {
         NavigationView {
@@ -139,7 +222,10 @@ struct NewProfileView: View {
                         newProfileName = ""
                         newProfilePhoneNumber = ""
                         newProfileAddress = ""
+HomeGameView
                         saveAction() // Save the profiles
+
+main
                         showNewProfilePage = false
                     }) {
                         Text("Save")

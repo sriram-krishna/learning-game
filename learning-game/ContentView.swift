@@ -1,5 +1,6 @@
 import SwiftUI
 import LineChartView
+import TogglableSecureField
 
 struct MainMenuView: View {
     @State private var showGameOptions = false
@@ -8,17 +9,29 @@ struct MainMenuView: View {
     
     var body: some View {
         ZStack {
+HomeGameView
             Image("HomePage Image")
+
+            Image("Background Image")
+main
                 .resizable()
                 .frame(height: nil)
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 Spacer()
                 
-                Text("Memory Lane")
+                Text("Welcome to")
+                    .font(.system(size: 50))
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color.yellow)
+                    .offset(y: -75)
+                
+                Text("Memory Lane")
+                    .font(.system(size: 80))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.yellow)
+                    .offset(y: -80)
                                         
                 Spacer()
                 
@@ -108,6 +121,7 @@ struct GameOptionsView: View {
     }
 }
 
+HomeGameView
 /*struct SettingsView: View {
     @State private var name = ""
     @State private var phoneNumber = ""
@@ -132,6 +146,8 @@ struct GameOptionsView: View {
     }
 }*/
 
+
+main
 struct ProgressView: View {
     private let data: [LineChartData] = [
         LineChartData(300),

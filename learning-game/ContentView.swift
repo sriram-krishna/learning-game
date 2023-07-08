@@ -9,7 +9,11 @@ struct MainMenuView: View {
     
     var body: some View {
         ZStack {
+HomeGameView
+            Image("HomePage Image")
+
             Image("Background Image")
+main
                 .resizable()
                 .frame(height: nil)
                 .edgesIgnoringSafeArea(.all)
@@ -85,6 +89,8 @@ struct MainMenuView: View {
 }
 
 struct GameOptionsView: View {
+    @State private var showGameOptions = false
+
     var body: some View {
         VStack {
             Text("Choose a Game Option")
@@ -92,6 +98,21 @@ struct GameOptionsView: View {
                 .fontWeight(.bold)
             
             // Add your game options buttons here...
+            Button(action: {
+                showGameOptions = true
+            }) {
+                Text("Home Game")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
+                .background(Color.orange)
+                .foregroundColor(.white)
+                .cornerRadius(20)
+        }
+        .sheet(isPresented: $showGameOptions){
+            HomeGameView()
+        }
+
             
             Spacer()
         }
@@ -100,6 +121,33 @@ struct GameOptionsView: View {
     }
 }
 
+HomeGameView
+/*struct SettingsView: View {
+    @State private var name = ""
+    @State private var phoneNumber = ""
+    @State private var address = ""
+    
+    var body: some View {
+        Form {
+            Section(header: Text("Profile Information")) {
+                TextField("Name", text: $name)
+                TextField("Phone Number", text: $phoneNumber)
+                TextField("Address", text: $address)
+            }
+            
+            Section {
+                Button(action: {                }) {
+                    Text("Save")
+                        .foregroundColor(.blue)
+                }
+            }
+        }
+        .navigationBarTitle(Text("Settings"))
+    }
+}*/
+
+
+main
 struct ProgressView: View {
     private let data: [LineChartData] = [
         LineChartData(300),

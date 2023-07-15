@@ -14,15 +14,17 @@
 		840D309E2A44DA10008B7B69 /* learning_gameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D309D2A44DA10008B7B69 /* learning_gameTests.swift */; };
 		840D30A82A44DA10008B7B69 /* learning_gameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D30A72A44DA10008B7B69 /* learning_gameUITests.swift */; };
 		840D30AA2A44DA10008B7B69 /* learning_gameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D30A92A44DA10008B7B69 /* learning_gameUITestsLaunchTests.swift */; };
+		845C4D372A623876007D6B52 /* AddrProgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C4D362A623876007D6B52 /* AddrProgView.swift */; };
+		845C4D392A623883007D6B52 /* NameProgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C4D382A623883007D6B52 /* NameProgView.swift */; };
+		845C4D3B2A623894007D6B52 /* PhoneProgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C4D3A2A623894007D6B52 /* PhoneProgView.swift */; };
+		845C4D3D2A6238A5007D6B52 /* ProgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C4D3C2A6238A5007D6B52 /* ProgView.swift */; };
+		845C4D402A626E37007D6B52 /* DropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C4D3F2A626E37007D6B52 /* DropDownMenu.swift */; };
 		84A554A82A519BC600CE2A92 /* LineChartView in Frameworks */ = {isa = PBXBuildFile; productRef = 84A554A72A519BC600CE2A92 /* LineChartView */; };
-HomeGameView
 		EC1576DA2A579FF6005CFFE3 /* HintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1576D92A579FF6005CFFE3 /* HintsView.swift */; };
 		ECE40ECF2A579E7A0023B1BE /* HomeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE40ECE2A579E7A0023B1BE /* HomeGameView.swift */; };
 		ECE40ED12A579ECA0023B1BE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE40ED02A579ECA0023B1BE /* SettingsView.swift */; };
-
 		EC141F362A528BE40089BFB9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC141F352A528BE40089BFB9 /* SettingsView.swift */; };
 		ECBDA4A52A538D6E00F11149 /* HintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBDA4A42A538D6E00F11149 /* HintsView.swift */; };
-main
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,14 +55,16 @@ main
 		840D30A32A44DA10008B7B69 /* learning-gameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "learning-gameUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		840D30A72A44DA10008B7B69 /* learning_gameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = learning_gameUITests.swift; sourceTree = "<group>"; };
 		840D30A92A44DA10008B7B69 /* learning_gameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = learning_gameUITestsLaunchTests.swift; sourceTree = "<group>"; };
-HomeGameView
+		845C4D362A623876007D6B52 /* AddrProgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddrProgView.swift; sourceTree = "<group>"; };
+		845C4D382A623883007D6B52 /* NameProgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameProgView.swift; sourceTree = "<group>"; };
+		845C4D3A2A623894007D6B52 /* PhoneProgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneProgView.swift; sourceTree = "<group>"; };
+		845C4D3C2A6238A5007D6B52 /* ProgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgView.swift; sourceTree = "<group>"; };
+		845C4D3F2A626E37007D6B52 /* DropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenu.swift; sourceTree = "<group>"; };
 		EC1576D92A579FF6005CFFE3 /* HintsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintsView.swift; sourceTree = "<group>"; };
 		ECE40ECE2A579E7A0023B1BE /* HomeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGameView.swift; sourceTree = "<group>"; };
 		ECE40ED02A579ECA0023B1BE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-
 		EC141F352A528BE40089BFB9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		ECBDA4A42A538D6E00F11149 /* HintsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintsView.swift; sourceTree = "<group>"; };
-main
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,16 +118,18 @@ main
 			children = (
 				840D308C2A44DA0F008B7B69 /* learning_gameApp.swift */,
 				840D308E2A44DA0F008B7B69 /* ContentView.swift */,
-HomeGameView
 				ECE40ECE2A579E7A0023B1BE /* HomeGameView.swift */,
 				ECE40ED02A579ECA0023B1BE /* SettingsView.swift */,
 				EC1576D92A579FF6005CFFE3 /* HintsView.swift */,
-
 				EC141F352A528BE40089BFB9 /* SettingsView.swift */,
 				ECBDA4A42A538D6E00F11149 /* HintsView.swift */,
-main
 				840D30902A44DA10008B7B69 /* Assets.xcassets */,
 				840D30922A44DA10008B7B69 /* Preview Content */,
+				845C4D362A623876007D6B52 /* AddrProgView.swift */,
+				845C4D382A623883007D6B52 /* NameProgView.swift */,
+				845C4D3A2A623894007D6B52 /* PhoneProgView.swift */,
+				845C4D3C2A6238A5007D6B52 /* ProgView.swift */,
+				845C4D3F2A626E37007D6B52 /* DropDownMenu.swift */,
 			);
 			path = "learning-game";
 			sourceTree = "<group>";
@@ -289,17 +295,16 @@ main
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-HomeGameView
-				ECE40ED12A579ECA0023B1BE /* SettingsView.swift in Sources */,
-
-				EC141F362A528BE40089BFB9 /* SettingsView.swift in Sources */,
-main
+				845C4D3D2A6238A5007D6B52 /* ProgView.swift in Sources */,
 				840D308F2A44DA0F008B7B69 /* ContentView.swift in Sources */,
-				EC1576DA2A579FF6005CFFE3 /* HintsView.swift in Sources */,
-				ECE40ECF2A579E7A0023B1BE /* HomeGameView.swift in Sources */,
+				845C4D392A623883007D6B52 /* NameProgView.swift in Sources */,
+				845C4D3B2A623894007D6B52 /* PhoneProgView.swift in Sources */,
+				845C4D402A626E37007D6B52 /* DropDownMenu.swift in Sources */,
 				840D308D2A44DA0F008B7B69 /* learning_gameApp.swift in Sources */,
-				ECBDA4A52A538D6E00F11149 /* HintsView.swift in Sources */,
-			);
+				845C4D372A623876007D6B52 /* AddrProgView.swift in Sources */,
+				ECE40ED12A579ECA0023B1BE /* SettingsView.swift in Sources */,
+				EC141F362A528BE40089BFB9 /* SettingsView.swift in Sources */,
+        );
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		840D30952A44DA10008B7B69 /* Sources */ = {

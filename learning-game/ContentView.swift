@@ -64,10 +64,10 @@ struct MainMenuView: View {
                     .foregroundColor(.white)
                     .cornerRadius(20)
             }
-            .sheet(isPresented: $showProgress){
-                ProgressView()
-            }
                 
+                .sheet(isPresented: $showProgress) {
+                    ProgView()
+                }
                 Spacer()
             }
             .padding()
@@ -115,35 +115,6 @@ struct SettingsView: View {
     }
 }
 
-struct ProgressView: View {
-    private let data: [LineChartData] = [
-        LineChartData(300),
-        LineChartData(250),
-        LineChartData(400),
-        LineChartData(500),
-    ]
-    
-    var body: some View {
-        let chartParameters = LineChartParameters(
-            data: data,
-            labelColor: .primary,
-            secondaryLabelColor: .secondary,
-            labelsAlignment: .left,
-            indicatorPointColor: .blue,
-            indicatorPointSize: 20,
-            lineColor: .blue,
-            lineSecondColor: .purple,
-            lineWidth: 3,
-            dotsWidth: 8,
-            displayMode: .default,
-            dragGesture: true,
-            hapticFeedback: true
-        )
-        
-        LineChartView(lineChartParameters: chartParameters)
-            .frame(height: 300)
-    }
-}
 struct ContentView: View {
     var body: some View {
         MainMenuView()
@@ -156,4 +127,3 @@ struct ContentView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
-

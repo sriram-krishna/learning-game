@@ -9,7 +9,23 @@ import SwiftUI
 
 struct ProgView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView{
+            AddrProgView()
+                .tabItem() {
+                    Image(systemName: "location")
+                    Text("Address")
+                }
+            NameProgView()
+                .tabItem(){
+                    Image(systemName: "person")
+                    Text("Name")
+                }
+            PhoneProgView()
+                .tabItem(){
+                    Image(systemName: "phone")
+                    Text("Phone")
+                }
+        }
     }
 }
 

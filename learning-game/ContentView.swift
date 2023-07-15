@@ -1,5 +1,6 @@
 import SwiftUI
 import LineChartView
+import TogglableSecureField
 
 struct MainMenuView: View {
     @State private var showGameOptions = false
@@ -8,17 +9,27 @@ struct MainMenuView: View {
     
     var body: some View {
         ZStack {
-            Image("background")
+            Image("HomePage Image")
+
+            Image("Background Image")
                 .resizable()
                 .frame(height: nil)
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 Spacer()
                 
-                Text("Memory Lane")
+                Text("Welcome to")
+                    .font(.system(size: 50))
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color.yellow)
+                    .offset(y: -75)
+                
+                Text("Memory Lane")
+                    .font(.system(size: 80))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.yellow)
+                    .offset(y: -80)
                                         
                 Spacer()
                 
@@ -76,6 +87,8 @@ struct MainMenuView: View {
 }
 
 struct GameOptionsView: View {
+    @State private var showGameOptions = false
+
     var body: some View {
         VStack {
             Text("Choose a Game Option")
@@ -83,6 +96,21 @@ struct GameOptionsView: View {
                 .fontWeight(.bold)
             
             // Add your game options buttons here...
+            Button(action: {
+                showGameOptions = true
+            }) {
+                Text("Home Game")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
+                .background(Color.orange)
+                .foregroundColor(.white)
+                .cornerRadius(20)
+        }
+        .sheet(isPresented: $showGameOptions){
+            HomeGameView()
+        }
+
             
             Spacer()
         }
@@ -91,7 +119,7 @@ struct GameOptionsView: View {
     }
 }
 
-struct SettingsView: View {
+/*struct SettingsView: View {
     @State private var name = ""
     @State private var phoneNumber = ""
     @State private var address = ""
@@ -113,7 +141,8 @@ struct SettingsView: View {
         }
         .navigationBarTitle(Text("Settings"))
     }
-}
+}*/
+
 
 struct ContentView: View {
     var body: some View {
